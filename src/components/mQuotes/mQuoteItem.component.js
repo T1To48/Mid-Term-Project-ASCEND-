@@ -10,25 +10,50 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useGlobalContext } from "../../context/GlobalContext";
 import useAxios from "../../hooks.js/useAxios";
 import { Grid } from "@mui/material";
-const MQuoteItem = ({ mQuote, author,category}) => {
-  const randomNum = Math.floor(Math.random() * 1000) + 1;
-   const imgUrl =`https://source.unsplash.com/featured/?nature&sig=${randomNum}`;
-
+const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
   const { isLoading } = useGlobalContext();
   const{getSongs,loggedUser}=useAxios();
+  
+
+//  let generatedNums=[];
+//   const generateNums=()=>{
+//     let randomNum1= Math.floor(Math.random() * 500) + 1;
+//     generatedNums.push(randomNum1)
+//     if(generatedNums.includes(randomNum1)){
+//       console.log("inclides",randomNum1)
+//       randomNum1=Math.floor(Math.random() * 800) + 501;
+//       randomNum1=generatedNums.includes(randomNum1)? Math.floor(Math.random() * 1000) + 801:randomNum1;
+//       generatedNums.push(randomNum1)
+//     }
+//     return `https://source.unsplash.com/featured/?nature&sig=${randomNum1}`;
+//   }
+ 
+  
+    
+  
   return (
     <Grid>
     <Card
           sx={{
             width: 300,
             height:300,
+            backgroundImage: `url(https://source.unsplash.com/featured/?nature&sig=${quoteId})`,
+            backgroundSize: "345px 400px",
+            
+          }}
+        >
+          
+    {/* <Card
+          sx={{
+            width: 300,
+            height:300,
             backgroundImage: `url(${imgUrl})`,
             backgroundSize: "345px 400px"
           }}
-        >
-          <CardContent>
-            <br />
-            <Typography backgroundColor="#E9F8F9" sx={{opacity:"0.6",color:"#181823" }} fontWeight="900" variant="body2" color="white">
+        > */}
+          <CardContent  sx={{height:"250px"}}>
+            
+            <Typography backgroundColor="#E9F8F9" sx={{opacity:"0.6",color:"#181823",marginTop:"5px" }} fontWeight="900" variant="body2" color="white">
            {mQuote}
             </Typography>
             <Typography

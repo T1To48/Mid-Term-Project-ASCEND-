@@ -26,14 +26,15 @@ const useAxios=()=> {
      axios
       .request(options)
       .then((response) => {
+        console.log(response)
         const ids = response.data.tracks.items.map((track) => {
           return track.data.id;
         });
         setMusicSearchResult(ids);
-        console.log(response.data)
+        console.log("SPOTIFY SEARCH RESULTS",response.data)
       })
       .catch(function (error) {
-        console.error(error);
+        console.error("SPOTIFY SEARCH ERROR",error);
       });
   };
   const updateUserLibrary=async(toUpdate)=>{

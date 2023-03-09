@@ -94,8 +94,12 @@ export default function Navbar() {
     setLoggedUser([])
     setMusicSearchResult([])
   };
+  const handleMenuClose = () => {
+    setTimeout(()=>setAnchorEl(null),1000)
+  };
   const handleLibraryMenuClose = () => {
-    setAnchorElLibrary(null);
+    setTimeout(()=>setAnchorElLibrary(null),1000)
+    
   };
 
 
@@ -113,6 +117,7 @@ useEffect(() => {
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
+    
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -125,11 +130,15 @@ useEffect(() => {
         horizontal: 'right',
       }}
       open={isMenuOpen}
-      onClose={handleLogout}
-      style={{ marginTop: '8vh' }}
+      onClose={handleMenuClose}
+      style={{ marginTop: '5vh' }}
     >
-      <MenuItem onClick={handleLogout}><NavLink to='/'>Logout</NavLink></MenuItem>
-    </Menu>
+      <div style={{ marginTop: '1vh' }} onMouseLeave={handleMenuClose} >
+            <MenuItem onClick={handleLibraryMenuClose}><NavLink to='/'>HOME</NavLink></MenuItem>
+
+      <MenuItem  ><NavLink  to='/'><div onClick={handleLogout}>Logout</div></NavLink></MenuItem>
+    </div></Menu>
+    
   );
   const libraryId = 'primary-search-account-menu';
   const renderLibrary = (
@@ -147,17 +156,18 @@ useEffect(() => {
       }}
       open={isLibraryMenuOpen}
       onClose={handleLibraryMenuClose}
-      style={{ marginTop: '8vh' }}
-    >
+      sx={{ marginTop: '5vh' }}
+    ><div style={{ marginTop: '1vh' }} onMouseLeave={handleLibraryMenuClose} >
       <MenuItem onClick={handleLibraryMenuClose}>Quotes</MenuItem>
       <MenuItem onClick={handleLibraryMenuClose}><NavLink to='/music-library'>Music</NavLink></MenuItem>
+      </div>
     </Menu>
   );
 
 
 
   return (
-    <Box sx={{ flexGrow: 1,marginBottom:2}}>
+    <Box sx={{ flexGrow: 1,margin:"1% 3%"}}>
       <AppBar position="static" sx={{borderRadius:"20px" }}>
         <Toolbar>
           {/* <IconButton

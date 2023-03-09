@@ -13,7 +13,7 @@ const MQuotesList = () => {
     const mQuotes=localStorage.getItem("currentQuotes");
     return mQuotes?JSON.parse(mQuotes):[];
    });
-  const{isLoading,setIsLoading,rndmRange}=useGlobalContext();
+  const{isLoading,setIsLoading,rndmRange,localApi}=useGlobalContext();
 
   const getQuotes = async () => {
      setIsLoading(true);
@@ -24,7 +24,7 @@ const MQuotesList = () => {
       if (quotesArr){
         setQuotesResults(rndmRange(quotesArr))
       }
-      
+      console.log(quotesArr)
     } catch (error) {
       console.log(error);
     } finally {
@@ -39,24 +39,35 @@ const MQuotesList = () => {
 
   }, [quotesResults]);
   useEffect(() => {
-    getQuotes()
+    if(localApi("get","currentQuotes").length>1){
+      setQuotesResults( localApi("get","currentQuotes"))
+    }
+    else{getQuotes()}
 
   }, []);
   
 
  
   return (
-    <Box sx={{ flexGrow: 2 ,display:"flex",justifyContent:"center"}}>
-      <button onClick={getQuotes} disabled={isLoading}>{isLoading?"Loading...":"Randomize"}</button>
+    <div>
+  <button onClick={getQuotes} disabled={isLoading}>
+    {isLoading?"Loading...":"Randomize"}
+    </button>
+    <div style={{display:"flex",justifyContent:"center"}}>
+      <Box sx={{ flexGrow: 2,marginLeft:"10%"}}>
       
-   <Grid container spacing={2} sx={{ flexWrap: "wrap" ,gap:"5px"}}>
+      
+   <Grid container spacing={2} sx={{ flexWrap: "wrap" ,columnGap:"25px"}}>
    {quotesResults.map((quote)=>{
-        return <div key={Math.random()} ><br/><MQuoteItem mQuote={quote.quote} author={quote.name} category={quote.category} /></div> 
+    console.log("@@@@@@",quote)
+        return <div key={Math.random()} ><br/><MQuoteItem mQuote={quote.quote} author={quote.name} category={quote.category} quoteId={`${quote.id}`} /></div> 
       })}
      
    </Grid>
  </Box>
+    </div>
     
+ </div>
     
   )
 }
