@@ -32,7 +32,7 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
     
   
   return (
-    <Grid>
+    <Grid >
       
     <Card
           sx={{

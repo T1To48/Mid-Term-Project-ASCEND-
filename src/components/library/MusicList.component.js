@@ -21,6 +21,7 @@ const MusicList = () => {
    
    let loggedUserMusic=loggedUser.library.songs
    console.log(loggedUserMusic)
+   
    const removeSong = (songId) => {
       const userSongs=loggedUser.library.songs;
       const newUserSongs= userSongs.filter((song) => song !== songId);

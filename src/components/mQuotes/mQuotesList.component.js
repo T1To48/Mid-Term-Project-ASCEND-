@@ -52,7 +52,7 @@ const MQuotesList = () => {
     
   
     <div >
-      <Box sx={{ flexGrow: 2}}>
+      <Box sx={{ flexGrow: 2,textAlign: "center"}}>
       <button onClick={getQuotes} disabled={isLoading}>
     {isLoading?"Loading...":"Randomize"}
     </button>

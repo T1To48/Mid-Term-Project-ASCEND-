@@ -4,7 +4,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SharedLayout } from "./components";
 import { Login,Signup,Main,MusicLibrary,Landing } from './pages';
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import BodyColor from "./styles/styled/BodyColor";
 import './App.css';
 
 function App() {

@@ -131,7 +131,7 @@ useEffect(() => {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
-      style={{ marginTop: '5vh' }}
+      style={{ marginTop: '10vh' }}
     >
       <div style={{ marginTop: '1vh' }} onMouseLeave={handleMenuClose} >
             <MenuItem onClick={handleLibraryMenuClose}><NavLink to='/'>HOME</NavLink></MenuItem>
@@ -156,7 +156,7 @@ useEffect(() => {
       }}
       open={isLibraryMenuOpen}
       onClose={handleLibraryMenuClose}
-      sx={{ marginTop: '5vh' }}
+      sx={{ marginTop: '10vh' }}
     ><div style={{ marginTop: '1vh' }} onMouseLeave={handleLibraryMenuClose} >
       <MenuItem onClick={handleLibraryMenuClose}>Quotes</MenuItem>
       <MenuItem onClick={handleLibraryMenuClose}><NavLink to='/music-library'>Music</NavLink></MenuItem>
@@ -168,7 +168,7 @@ useEffect(() => {
 
   return (
     <Box  sx={{ flexGrow: 1,margin:"10%"}}>
-      <AppBar position="fixed" sx={{borderRadius:"20px",width:"80%",margin:"1% 10%"}}>
+      <AppBar position="fixed" sx={{borderRadius:"20px",width:"80vw",margin:"1% 10%"}}>
         <Toolbar>
           {/* <IconButton
             size="large"

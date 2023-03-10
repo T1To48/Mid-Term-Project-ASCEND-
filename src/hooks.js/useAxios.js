@@ -25,7 +25,6 @@ const useAxios=()=> {
      axios
       .request(options)
       .then((response) => {
-        console.log(response)
         const ids = response.data.tracks.items.map((track) => {
           return track.data.id;
         });
