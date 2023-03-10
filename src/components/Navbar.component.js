@@ -95,10 +95,10 @@ export default function Navbar() {
     setMusicSearchResult([])
   };
   const handleMenuClose = () => {
-    setTimeout(()=>setAnchorEl(null),1000)
+    setTimeout(()=>setAnchorEl(null),500)
   };
   const handleLibraryMenuClose = () => {
-    setTimeout(()=>setAnchorElLibrary(null),1000)
+    setTimeout(()=>setAnchorElLibrary(null),500)
     
   };
 
@@ -167,8 +167,8 @@ useEffect(() => {
 
 
   return (
-    <Box  sx={{ flexGrow: 1,margin:"1% 3%"}}>
-      <AppBar position="static" sx={{borderRadius:"20px" }}>
+    <Box  sx={{ flexGrow: 1,margin:"10%"}}>
+      <AppBar position="fixed" sx={{borderRadius:"20px",width:"80%",margin:"1% 10%"}}>
         <Toolbar>
           {/* <IconButton
             size="large"

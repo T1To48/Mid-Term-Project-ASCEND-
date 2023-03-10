@@ -13,7 +13,7 @@ function App() {
     palette: {
       primary: {
         // Purple and green play nicely together.
-        main: "rgba(13, 14, 18, 0.75)",
+        main: "rgba(13, 14, 18, 0.90)",
       },
       secondary: {
         // This is green.A700 as hex.

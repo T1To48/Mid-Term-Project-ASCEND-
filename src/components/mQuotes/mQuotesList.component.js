@@ -57,7 +57,7 @@ const MQuotesList = () => {
     {isLoading?"Loading...":"Randomize"}
     </button>
       
-   <Grid container spacing={2} sx={{ flexWrap: "wrap" ,columnGap:"25px",padding:"5px"}}>
+   <Grid container spacing={2} sx={{display:"flex" ,justifyContent:"center", flexWrap: "wrap" ,columnGap:"25px",padding:"5px"}}>
    {quotesResults.map((quote)=>{
     console.log("@@@@@@",quote)
         return <div key={Math.random()} ><br/><MQuoteItem mQuote={quote.quote} author={quote.name} category={quote.category} quoteId={`${quote.id}`} /></div> 

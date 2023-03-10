@@ -5,12 +5,12 @@ import Container from '@mui/material/Container';
 
 const SharedLayout = () => {
   return (
-    <>
+    <><Container fixed>
       <Navbar  />
-      <Container fixed>
-        <div  style={{display:"flex",justifyContent:"center",marginLeft:"10%"}}>
+      
+        {/* <div  style={{display:"flex",justifyContent:"center",marginLeft:"10%"}}> */}
           <Outlet />
-        </div>
+        {/* </div> */}
       
       </Container>
     </>

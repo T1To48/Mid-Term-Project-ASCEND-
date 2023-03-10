@@ -41,7 +41,7 @@ const SongsList = () => {
   
 
   return (
-    <Box sx={{ width: "100%", maxWidth: "90%", bgcolor: "background.paper" }}>
+    <Box sx={{ width: "100%", maxWidth: "90%" }}>
       <button onClick={()=>setMusicSearchResult([])}>BACK to Quotes</button>
       {musicSearchResult.map((songId) => (
         <SongItem
