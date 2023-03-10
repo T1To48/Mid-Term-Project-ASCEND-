@@ -6,7 +6,7 @@ import "../styles/styled/LandingPage.css"
 
 const Landing = () => {
   return (
-   <div >
+   <div className="size">
    <div
      id="intro-example"
      className="p-5 text-center bg-image"

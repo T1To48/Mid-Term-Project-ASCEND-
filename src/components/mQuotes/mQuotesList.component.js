@@ -49,15 +49,15 @@ const MQuotesList = () => {
 
  
   return (
-    <div>
-  <button onClick={getQuotes} disabled={isLoading}>
+    
+  
+    <div >
+      <Box sx={{ flexGrow: 2}}>
+      <button onClick={getQuotes} disabled={isLoading}>
     {isLoading?"Loading...":"Randomize"}
     </button>
-    <div style={{display:"flex",justifyContent:"center"}}>
-      <Box sx={{ flexGrow: 2,marginLeft:"10%"}}>
       
-      
-   <Grid container spacing={2} sx={{ flexWrap: "wrap" ,columnGap:"25px"}}>
+   <Grid container spacing={2} sx={{ flexWrap: "wrap" ,columnGap:"25px",padding:"5px"}}>
    {quotesResults.map((quote)=>{
     console.log("@@@@@@",quote)
         return <div key={Math.random()} ><br/><MQuoteItem mQuote={quote.quote} author={quote.name} category={quote.category} quoteId={`${quote.id}`} /></div> 
@@ -67,7 +67,6 @@ const MQuotesList = () => {
  </Box>
     </div>
     
- </div>
     
   )
 }

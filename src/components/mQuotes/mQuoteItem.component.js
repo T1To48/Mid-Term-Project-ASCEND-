@@ -33,6 +33,7 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
   
   return (
     <Grid>
+      
     <Card
           sx={{
             width: 300,
@@ -51,9 +52,15 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
             backgroundSize: "345px 400px"
           }}
         > */}
+        <div  style={{
+      width: 300,
+      height:300,
+      backgroundColor: `rgba(0, 0, 0, 0.5)`,
+      backgroundSize: "345px 400px",
+    }}>
           <CardContent  sx={{height:"250px"}}>
             
-            <Typography backgroundColor="#E9F8F9" sx={{opacity:"0.6",color:"#181823",marginTop:"5px" }} fontWeight="900" variant="body2" color="white">
+            <Typography  sx={{opacity:"0.8",color:"white",marginTop:"5px" }} fontWeight="900" variant="body2" color="white">
            {mQuote}
             </Typography>
             <Typography
@@ -91,6 +98,7 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
               <SearchOutlinedIcon /> Music
             </Button>
           </CardActions>
+          </div>
         </Card>
         </Grid>
   );

@@ -5,6 +5,8 @@ import secureLocalStorage from "react-secure-storage"
 
 import { usersDataApi } from "../api's";
 import { useGlobalContext } from "../context/GlobalContext";
+
+import { Box } from "@mui/system/Box";
 const Login = () => {
 const {isLoading,setIsLoading,loggedUser, setLoggedUser,localApi}=useGlobalContext();
 
@@ -62,7 +64,7 @@ const {isLoading,setIsLoading,loggedUser, setLoggedUser,localApi}=useGlobalConte
 
 
   return (
-    <div>
+    <div className="size">
       <form onSubmit={handleLogin}>
         <label htmlFor="email">Email:</label>
         <input

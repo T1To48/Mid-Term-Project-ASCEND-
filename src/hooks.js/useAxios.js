@@ -22,7 +22,6 @@ const useAxios=()=> {
         "X-RapidAPI-Host": "spotify23.p.rapidapi.com"
       }
     };
-
      axios
       .request(options)
       .then((response) => {
@@ -37,13 +36,15 @@ const useAxios=()=> {
         console.error("SPOTIFY SEARCH ERROR",error);
       });
   };
+
+
   const updateUserLibrary=async(toUpdate)=>{
     
     try{
       const response=await usersDataApi.put(toUpdate.id,toUpdate);
       const responseUser =
         Object.keys(response.data).length > 1 ? response.data : console.log(response);
-      console.log(response)
+      console.log("$$$$$$$$$",response)
       const userObjHiddenPass ={...responseUser,password:"****"}
         localApi("set", "loggedUser", userObjHiddenPass);
     }

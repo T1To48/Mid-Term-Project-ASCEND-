@@ -167,7 +167,7 @@ useEffect(() => {
 
 
   return (
-    <Box sx={{ flexGrow: 1,margin:"1% 3%"}}>
+    <Box  sx={{ flexGrow: 1,margin:"1% 3%"}}>
       <AppBar position="static" sx={{borderRadius:"20px" }}>
         <Toolbar>
           {/* <IconButton
