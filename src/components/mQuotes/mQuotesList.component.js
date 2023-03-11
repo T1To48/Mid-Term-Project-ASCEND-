@@ -1,6 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
+import Button  from '@mui/material/Button';
+import ShuffleOnOutlinedIcon from '@mui/icons-material/ShuffleOnOutlined';
 
 import {useState,useEffect} from 'react'
 import { mQuotesApi } from '../../api\'s'
@@ -13,7 +15,7 @@ const MQuotesList = () => {
     const mQuotes=localStorage.getItem("currentQuotes");
     return mQuotes?JSON.parse(mQuotes):[];
    });
-  const{isLoading,setIsLoading,rndmRange,localApi}=useGlobalContext();
+  const{isLoading,setIsLoading,rndmRange,localApi,btnHoverBgColor}=useGlobalContext();
 
   const getQuotes = async () => {
      setIsLoading(true);
@@ -46,20 +48,29 @@ const MQuotesList = () => {
 
   }, []);
   
-
+  let shuffleBtnFixed={
+    position: 'fixed',
+      bottom: "5%",
+      right: "5%",
+      zIndex: 1,
+      ...btnHoverBgColor
+  }
  
   return (
     
   
     <div >
+      <Button variant="contained"
+              size="medium"
+              // onClick={()=>)}
+              sx={{...shuffleBtnFixed}} onClick={getQuotes} disabled={isLoading}>
+    {isLoading?"Loading...":<><ShuffleOnOutlinedIcon/> &nbsp;&nbsp;SHUFFLE</>}
+    </Button>
       <Box sx={{ flexGrow: 2,textAlign: "center"}}>
-      <button onClick={getQuotes} disabled={isLoading}>
-    {isLoading?"Loading...":"Randomize"}
-    </button>
+      
       
    <Grid container spacing={2} sx={{display:"flex" ,justifyContent:"center", flexWrap: "wrap" ,columnGap:"25px",padding:"5px"}}>
    {quotesResults.map((quote)=>{
-    console.log("@@@@@@",quote)
         return <div key={Math.random()} ><br/><MQuoteItem mQuote={quote.quote} author={quote.name} category={quote.category} quoteId={`${quote.id}`} /></div> 
       })}
      
@@ -73,13 +84,3 @@ const MQuotesList = () => {
 
 export default MQuotesList
 
-{/* <div>
-      <button onClick={getQuotes} disabled={isLoading}>{isLoading?"Loading...":"Randomize"}</button>
-      <br/>
-      <br/>
-      <div>
-      {quotesResults.map((quote)=>{
-        return <div key={Math.random()} ><br/><MQuoteItem mQuote={quote.quote} author={quote.name} category={quote.category} /></div> 
-      })}
-    </div>
-    </div> */}

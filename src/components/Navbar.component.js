@@ -1,59 +1,11 @@
-// import { useState } from 'react';
-// import { FaUserCircle, FaCaretDown } from 'react-icons/fa';
-
-// import Wrapper from '../styles/styled/Navbar.styled';
-// import Logo from './Logo.component';
-
-// import { useGlobalContext } from '../context/GlobalContext';
-
-// const Navbar = ({ user, setUser }) => {
-//   const [showLogout, setShowLogout] = useState(false);
-
-//   const handleLogout = () => {
-//     setUser('');
-//     localStorage.removeItem('userData');
-//   };
-
-//   return (
-//     <Wrapper>
-//       <div className='nav-center'>
-//         <div>
-//           <Logo />
-//         </div>
-//         <div className='btn-container'>
-//           <button
-//             type='button'
-//             className='btn'
-//             onClick={() => setShowLogout(!showLogout)}
-//           >
-//             <FaUserCircle />
-//             {user?.name}
-//             <FaCaretDown />
-//           </button>
-//           <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
-//             <button
-//               type='button'
-//               className='dropdown-btn'
-//               onClick={handleLogout}
-//             >
-//               logout
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </Wrapper>
-//   );
-// };
-// export default Navbar;
+import * as React from 'react';
 
 
 import { NavLink } from 'react-router-dom';
-
 import { useGlobalContext } from '../context/GlobalContext';
 import { useState,useEffect } from 'react';
 import secureLocalStorage from 'react-secure-storage';
 
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -75,10 +27,8 @@ export default function Navbar() {
   const [status, setStatus] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorElLibrary, setAnchorElLibrary] = React.useState(null);
-//   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isLibraryMenuOpen = Boolean(anchorElLibrary);
-//   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
