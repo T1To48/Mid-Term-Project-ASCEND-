@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage"
 
 import { usersDataApi } from "../api's";
-import { useGlobalContext } from "../context/GlobalContext";
+import { useGlobalContext } from "./index";
 
 import { Box } from "@mui/system/Box";
 const Login = () => {

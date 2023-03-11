@@ -41,7 +41,7 @@ const handleSignup=async (e)=>{
 }
 
   return (
-    <div className="size">
+    <div >
       <form onSubmit={handleSignup} >
       <label htmlFor="name">Name:</label>
       <input type="text" name="name" onChange={handleChange}  required/><br/><br/>

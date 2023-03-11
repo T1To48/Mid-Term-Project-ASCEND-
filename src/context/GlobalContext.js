@@ -3,6 +3,7 @@ import React, { useState, createContext, useContext } from "react";
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+  const btnHoverBgColor={"&:hover":{backgroundColor:"#1fb75c",color:"black"}}
   const [isLoading, setIsLoading] = useState(false);
   const [musicSearchResult, setMusicSearchResult] = useState([]);
   const [loggedUser, setLoggedUser] = useState(() => {
@@ -10,6 +11,8 @@ const AppProvider = ({ children }) => {
     return isLogged ? JSON.parse(isLogged) : [];
   });
 
+
+  
   const rndm = (min, max) => {
     let difference = max + 1 - min;
     return Math.floor(Math.random() * difference) + min;
@@ -29,15 +32,15 @@ const AppProvider = ({ children }) => {
         selectedObjects.push(objects.splice(randomIndex, 1)[0]);
       }
       return selectedObjects;
-    }
-  
+    };
+
     result.push(...getRandomObjects(0, 9, 2));
     result.push(...getRandomObjects(10, 19, 2));
     result.push(...getRandomObjects(20, 29, 2));
     result.push(...getRandomObjects(30, 39, 2));
     result.push(...getRandomObjects(40, 49, 2));
     result.push(...getRandomObjects(0, 49, 2));
-  
+
     return result;
   };
   // const rndmRange = (quotesArr) => {
@@ -52,7 +55,7 @@ const AppProvider = ({ children }) => {
   //     }
   //   }
   //   })
-    
+
   //   arr.sort((a, b) => a.quote.length - b.quote.length);
   //   console.log("ARR",arr)
   //   return arr;
@@ -81,6 +84,7 @@ const AppProvider = ({ children }) => {
     return localApiArr && localApiArr.flat();
   };
 
+
   
 
   return (
@@ -95,6 +99,7 @@ const AppProvider = ({ children }) => {
         musicSearchResult,
         setMusicSearchResult,
         rndm,
+        btnHoverBgColor
       }}
     >
       {children}

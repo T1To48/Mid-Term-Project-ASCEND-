@@ -11,7 +11,7 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import useAxios from "../../hooks.js/useAxios";
 import { Grid } from "@mui/material";
 const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
-  const { isLoading } = useGlobalContext();
+  const { isLoading,btnHoverBgColor } = useGlobalContext();
   const{getSongs,loggedUser}=useAxios();
   
 
@@ -40,6 +40,8 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
             height:300,
             backgroundImage: `url(https://source.unsplash.com/featured/?nature&sig=${quoteId})`,
             backgroundSize: "345px 400px",
+            borderRadius: "20px"
+
             
           }}
         >
@@ -69,7 +71,6 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
                 width: "fit-content",
                 paddingTop: "3px",
                 opacity: "0.7",
-                borderRadius: "40px"
               }}
               size="small"
               gutterBottom
@@ -82,18 +83,21 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
           </CardContent>
           <CardActions sx={{display:"flex",justifyContent:"space-evenly"}}>
             <Button
-              sx={{ backgroundColor: "#537FE7" }}
+              
               variant="contained"
               size="small"
               // onClick={()=>)}
+              sx={{...btnHoverBgColor}}
+
             >
               <LibraryAddOutlinedIcon /> 
             </Button>
             <Button
-              sx={{ backgroundColor: "#537FE7" }}
+              
               variant="contained"
               size="small"
               onClick={()=>getSongs(`${category}`)}
+              sx={{...btnHoverBgColor}}
             >
               <SearchOutlinedIcon /> Music
             </Button>

@@ -13,10 +13,12 @@ function App() {
       primary: {
         // Purple and green play nicely together.
         main: "rgba(13, 14, 18, 0.90)",
+      
+        
       },
       secondary: {
         // This is green.A700 as hex.
-        main: '#39033B',
+        main: 'rgb(144, 230, 5)',
       },
     },
   });

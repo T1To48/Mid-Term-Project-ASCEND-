@@ -34,7 +34,6 @@ const MyQuoteCard = () => {
                 width: "fit-content",
                 paddingTop: "3px",
                 opacity: "0.7",
-                borderRadius: "40px"
               }}
               size="small"
               gutterBottom

@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { MQuotesList,SongsList } from '../components'
 import useAxios from '../hooks.js/useAxios'
-import { useGlobalContext } from '../context/GlobalContext'
+import { useGlobalContext } from './index'
 const Main = () => {
 const{musicSearchResult, setMusicSearchResult}=useGlobalContext()
 
