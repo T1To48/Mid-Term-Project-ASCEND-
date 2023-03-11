@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
+import { useGlobalContext } from "../../context/GlobalContext";
+
+import Button from "@mui/material/Button";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import ListItem from "@mui/material/ListItem";
+
 const SongItem = ({ songTitle, songId, onClick }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { btnHoverBgColor } = useGlobalContext();
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,10 +18,7 @@ const SongItem = ({ songTitle, songId, onClick }) => {
 
   return (
     <div>
-      <ListItem disablePadding style={{ margin: "0 10%" }}>
-        <IconButton onClick={onClick} sx={{ float: "right" }} color="primary">
-          <AddIcon />
-        </IconButton>
+      <ListItem disablePadding>
         {isLoading ? (
           "Loading..."
         ) : (
@@ -33,6 +34,19 @@ const SongItem = ({ songTitle, songId, onClick }) => {
             loading="lazy"
           />
         )}
+        &nbsp;
+        <Button
+          onClick={onClick}
+          sx={{
+            ...btnHoverBgColor,
+            borderRadius: "50%",
+            width: "auto",
+            height: "60px",
+          }}
+          color="primary"
+        >
+          <AddCircleOutlinedIcon fontSize="large" />
+        </Button>
       </ListItem>
     </div>
   );

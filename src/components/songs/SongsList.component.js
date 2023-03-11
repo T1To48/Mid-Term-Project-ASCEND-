@@ -9,8 +9,7 @@ import SongItem from "./SongItem.component";
 import Button from "@mui/material/Button";
 import LowPriorityOutlinedIcon from "@mui/icons-material/LowPriorityOutlined";
 import Box from "@mui/material/Box";
-
-
+import Container from "@mui/material/Container";
 
 const SongsList = () => {
   const {
@@ -44,11 +43,12 @@ const SongsList = () => {
     bottom: "5%",
     right: "5%",
     zIndex: 1,
+    borderRadius: "20px",
     ...btnHoverBgColor,
   };
 
   return (
-    <Box sx={{ width: "100%", maxWidth: "90%" }}>
+    <Box sx={{ width: "100%", paddingTop: "2%", marginLeft: "10%" }}>
       <Button
         variant="contained"
         size="medium"
@@ -58,13 +58,16 @@ const SongsList = () => {
         <LowPriorityOutlinedIcon />
         &nbsp; to Quotes
       </Button>
+
       {musicSearchResult.map((songId) => (
-        <SongItem
-          songTitle={songId}
-          songId={songId}
-          key={songId}
-          onClick={() => addSong(songId)}
-        />
+        <Container fixed>
+          <SongItem
+            songTitle={songId}
+            songId={songId}
+            key={songId}
+            onClick={() => addSong(songId)}
+          />
+        </Container>
       ))}
     </Box>
   );
