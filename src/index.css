@@ -1,16 +1,6 @@
-/* body{
-   background: url(https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)  ;
-   background-repeat: no-repeat;
-   background-size:100% fit-content; 
-   
-     display: flex ;
-   justify-content: center ;
-   /* background-color: #f5f5f5; } */
-
-
 
 body { 
-   background: url(https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center fixed; 
+   background: url(./assets/images/background.jpg) no-repeat center center fixed; 
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
