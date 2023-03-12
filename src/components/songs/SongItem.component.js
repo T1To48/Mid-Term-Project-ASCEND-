@@ -45,7 +45,9 @@ const SongItem = ({ songTitle, songId, onClick }) => {
           }}
           color="primary"
         >
-          <AddCircleOutlinedIcon fontSize="large" />
+          <AddCircleOutlinedIcon sx={{width: "auto",
+            height: "40px",
+          }} />
         </Button>
       </ListItem>
     </div>

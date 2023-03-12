@@ -17,6 +17,7 @@ import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import GradeIcon from '@mui/icons-material/Grade';
 
+import MainLogo from "../assets/images/MainLogo.png"
 
 
 
@@ -114,8 +115,8 @@ useEffect(() => {
     </Menu>
   );
 
-
-
+  const LogoWidth=window.innerWidth>700?{width:window.innerWidth*0.1}:{width:window.innerWidth*0.2};
+  
   return (
     <Box  sx={{ flexGrow: 1,margin:"10%"}}>
       <AppBar position="fixed" sx={{borderRadius:"20px",width:"80vw",margin:"1% 10%"}}>
@@ -134,7 +135,7 @@ useEffect(() => {
             noWrap
             component="div"
           >
-            LOGO
+            <img src={MainLogo} style={LogoWidth} alt="ASCEND"/>
           </Typography>
            
           <Box sx={{ flexGrow: 1 }} />
