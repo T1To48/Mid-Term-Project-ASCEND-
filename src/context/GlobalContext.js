@@ -1,9 +1,10 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext,useRef } from "react";
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const btnHoverBgColor={"&:hover":{backgroundColor:"#1fb75c",color:"black"}}
+  const theLogo=useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [musicSearchResult, setMusicSearchResult] = useState([]);
   const [loggedUser, setLoggedUser] = useState(() => {
@@ -43,23 +44,7 @@ const AppProvider = ({ children }) => {
 
     return result;
   };
-  // const rndmRange = (quotesArr) => {
-  //   let arr = [quotesArr[rndm(0, 24)], quotesArr[rndm(25, 49)]];
-  //   arr.forEach((obj)=>{
-  //     for (let x = 0; x < 50; x += 10) {
-  //     if(obj===quotesArr[rndm(x, x + 9)]){
-  //       arr.push(quotesArr[rndm(0, 49)]);
-  //     }
-  //     else{
-  //       arr.push(quotesArr[rndm(x, x + 9)]);
-  //     }
-  //   }
-  //   })
-
-  //   arr.sort((a, b) => a.quote.length - b.quote.length);
-  //   console.log("ARR",arr)
-  //   return arr;
-  // };
+  
 
   const localApi = (method, key, value) => {
     let localApiArr = [];
@@ -83,8 +68,7 @@ const AppProvider = ({ children }) => {
 
     return localApiArr && localApiArr.flat();
   };
-
-
+  
   
 
   return (
@@ -99,7 +83,8 @@ const AppProvider = ({ children }) => {
         musicSearchResult,
         setMusicSearchResult,
         rndm,
-        btnHoverBgColor
+        btnHoverBgColor,
+        theLogo,
       }}
     >
       {children}
@@ -112,3 +97,6 @@ export const useGlobalContext = () => {
 };
 
 export { AppContext, AppProvider };
+
+
+

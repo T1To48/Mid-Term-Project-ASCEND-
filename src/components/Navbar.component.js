@@ -18,13 +18,14 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import GradeIcon from '@mui/icons-material/Grade';
 
 import MainLogo from "../assets/images/MainLogo.png"
+import MainLogoOnHover from "../assets/images/MainLogoOnHover.png"
 
 
 
 
 
 export default function Navbar() {
-  const{loggedUser,setLoggedUser,localApi,setMusicSearchResult}=useGlobalContext()
+  const{loggedUser,setLoggedUser,localApi,setMusicSearchResult,theLogo}=useGlobalContext()
   const [status, setStatus] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorElLibrary, setAnchorElLibrary] = React.useState(null);
@@ -135,7 +136,9 @@ useEffect(() => {
             noWrap
             component="div"
           >
-            <img src={MainLogo} style={LogoWidth} alt="ASCEND"/>
+            <div onMouseOver={()=>theLogo.current.src=MainLogoOnHover} onMouseLeave={()=>theLogo.current.src=MainLogo} onClick={() => setMusicSearchResult([])}>
+            <NavLink to='/'><img src={MainLogo} style={LogoWidth}  alt="ASCEND" ref={theLogo} /></NavLink>
+            </div>
           </Typography>
            
           <Box sx={{ flexGrow: 1 }} />
