@@ -1,19 +1,20 @@
-import React, { useState, createContext, useContext,useRef } from "react";
+import React, { useState, createContext, useContext, useRef } from "react";
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const btnHoverBgColor={"&:hover":{backgroundColor:"#1fb75c",color:"black"}}
-  const theLogo=useRef();
+  const btnHoverBgColor = {
+    "&:hover": { backgroundColor: "#1fb75c", color: "black" },
+  };
+  const theLogo = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [musicSearchResult, setMusicSearchResult] = useState([]);
   const [loggedUser, setLoggedUser] = useState(() => {
     const isLogged = localStorage.getItem("loggedUser");
     return isLogged ? JSON.parse(isLogged) : [];
   });
+  const [isUserInDataBase, setIsUserInDataBase] = useState(false);
 
-
-  
   const rndm = (min, max) => {
     let difference = max + 1 - min;
     return Math.floor(Math.random() * difference) + min;
@@ -44,7 +45,6 @@ const AppProvider = ({ children }) => {
 
     return result;
   };
-  
 
   const localApi = (method, key, value) => {
     let localApiArr = [];
@@ -68,8 +68,6 @@ const AppProvider = ({ children }) => {
 
     return localApiArr && localApiArr.flat();
   };
-  
-  
 
   return (
     <AppContext.Provider
@@ -85,6 +83,8 @@ const AppProvider = ({ children }) => {
         rndm,
         btnHoverBgColor,
         theLogo,
+        isUserInDataBase,
+        setIsUserInDataBase,
       }}
     >
       {children}
@@ -97,6 +97,3 @@ export const useGlobalContext = () => {
 };
 
 export { AppContext, AppProvider };
-
-
-

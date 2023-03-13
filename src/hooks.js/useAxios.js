@@ -2,11 +2,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { usersDataApi } from "../api's";
+
 const useAxios=()=> {
-  const {musicSearchResult,setMusicSearchResult,localApi} = useGlobalContext();
+  const {musicSearchResult,setMusicSearchResult,localApi,setIsUserInDataBase} = useGlobalContext();
+
 
   const getSongs = (category) => {
-    console.log("category",category)
     const options = {
       method: "GET",
       url: "https://spotify23.p.rapidapi.com/search/",
@@ -43,7 +44,6 @@ const useAxios=()=> {
       const response=await usersDataApi.put(toUpdate.id,toUpdate);
       const responseUser =
         Object.keys(response.data).length > 1 ? response.data : console.log(response);
-      console.log("$$$$$$$$$",response)
       const userObjHiddenPass ={...responseUser,password:"****"}
         localApi("set", "loggedUser", userObjHiddenPass);
     }
@@ -51,11 +51,24 @@ const useAxios=()=> {
       console.log(error)
     }
   }
-   
+   const isUserInDb=async(eemail)=>{
+    try {
+      const response = await usersDataApi.get(`?email=${eemail}`);
+      const user=response.data[0] 
+      if (user &&user.email===eemail) {
+        setIsUserInDataBase(true)
+      }else{
+        setIsUserInDataBase(false)
+      }
+    } catch (error) {
+      console.log(error);
+    } 
+   }
 
   return {
    getSongs,
-   updateUserLibrary
+   updateUserLibrary,
+   isUserInDb
   }
 }
 
@@ -68,4 +81,4 @@ export default useAxios;
 
 
 
-// "X-RapidAPI-Key": "cefa1a67f2msh96ef31d616aedf8p1e8134jsnfd3ebb1e5c3f"
+//_spotify "X-RapidAPI-Key": "cefa1a67f2msh96ef31d616aedf8p1e8134jsnfd3ebb1e5c3f"

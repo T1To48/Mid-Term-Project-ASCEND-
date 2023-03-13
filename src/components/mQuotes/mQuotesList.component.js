@@ -27,7 +27,6 @@ const MQuotesList = () => {
       if (quotesArr) {
         setQuotesResults(rndmRange(quotesArr));
       }
-      console.log(quotesArr);
     } catch (error) {
       console.log(error);
     } finally {
@@ -36,7 +35,6 @@ const MQuotesList = () => {
   };
 
   useEffect(() => {
-    console.log("pickle rick", quotesResults);
 
     localStorage.setItem("currentQuotes", JSON.stringify(quotesResults));
   }, [quotesResults]);

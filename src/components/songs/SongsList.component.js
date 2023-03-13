@@ -13,9 +13,7 @@ import Container from "@mui/material/Container";
 
 const SongsList = () => {
   const {
-    localApi,
     loggedUser,
-    setLoggedUser,
     musicSearchResult,
     setMusicSearchResult,
     btnHoverBgColor,
@@ -29,7 +27,6 @@ const SongsList = () => {
       ...loggedUser,
       password: secureLocalStorage.getItem("loggedUserPassword"),
     };
-    console.log(updatedUser);
     if (!updatedUser.library.songs.includes(selectedSong)) {
       updatedUser.library.songs.push(selectedSong);
       updateUserLibrary(updatedUser);
@@ -60,7 +57,7 @@ const SongsList = () => {
       </Button>
 
       {musicSearchResult.map((songId) => (
-        <Container fixed>
+        <Container key={Math.random()} fixed>
           <SongItem
             songTitle={songId}
             songId={songId}
