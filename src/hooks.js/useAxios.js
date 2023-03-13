@@ -18,7 +18,7 @@ const useAxios=()=> {
         numberOfTopResults: "3"
       },
       headers: {
-        "X-RapidAPI-Key": "cefa1a67f2msh96ef31d616aedf8p1e8134jsnfd3ebb1e5c3f",
+        "X-RapidAPI-Key": "76ec758f96msh91f1b342af0b0e3p17a99djsn07bd79fa597b",
         "X-RapidAPI-Host": "spotify23.p.rapidapi.com"
       }
     };
@@ -60,3 +60,12 @@ const useAxios=()=> {
 }
 
 export default useAxios;
+
+
+
+
+
+
+
+
+// "X-RapidAPI-Key": "cefa1a67f2msh96ef31d616aedf8p1e8134jsnfd3ebb1e5c3f"

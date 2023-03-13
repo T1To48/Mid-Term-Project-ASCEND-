@@ -158,7 +158,7 @@ useEffect(() => {
               onClick={handleLibraryMenuOpen}
               color="inherit"
             >
-              <GradeIcon />
+              <GradeIcon sx={{"&:hover":{color:"#1fb75c"}}}/>
             </IconButton>}
             {status?<IconButton
               size="large"
@@ -169,7 +169,7 @@ useEffect(() => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle sx={{"&:hover":{color:"#1fb75c"}}}/>
             </IconButton>:<Button><NavLink to='/login'>Login</NavLink></Button>}
           </Box>
           {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

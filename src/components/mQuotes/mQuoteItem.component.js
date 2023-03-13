@@ -14,22 +14,6 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
   const { isLoading,btnHoverBgColor } = useGlobalContext();
   const{getSongs,loggedUser}=useAxios();
   
-
-//  let generatedNums=[];
-//   const generateNums=()=>{
-//     let randomNum1= Math.floor(Math.random() * 500) + 1;
-//     generatedNums.push(randomNum1)
-//     if(generatedNums.includes(randomNum1)){
-//       console.log("inclides",randomNum1)
-//       randomNum1=Math.floor(Math.random() * 800) + 501;
-//       randomNum1=generatedNums.includes(randomNum1)? Math.floor(Math.random() * 1000) + 801:randomNum1;
-//       generatedNums.push(randomNum1)
-//     }
-//     return `https://source.unsplash.com/featured/?nature&sig=${randomNum1}`;
-//   }
- 
-  
-    
   
   return (
     <Grid >
@@ -46,14 +30,7 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
           }}
         >
           
-    {/* <Card
-          sx={{
-            width: 300,
-            height:300,
-            backgroundImage: `url(${imgUrl})`,
-            backgroundSize: "345px 400px"
-          }}
-        > */}
+  
         <div  style={{
       width: 300,
       height:300,
@@ -87,7 +64,8 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
               variant="contained"
               size="small"
               // onClick={()=>)}
-              sx={{...btnHoverBgColor}}
+    
+              sx={{...btnHoverBgColor,borderRadius: "20px"}}
 
             >
               <LibraryAddOutlinedIcon /> 
@@ -97,7 +75,7 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
               variant="contained"
               size="small"
               onClick={()=>getSongs(`${category}`)}
-              sx={{...btnHoverBgColor}}
+              sx={{...btnHoverBgColor,borderRadius: "20px",}}
             >
               <SearchOutlinedIcon /> Music
             </Button>
@@ -109,15 +87,5 @@ const MQuoteItem = ({ mQuote, author,category,quoteId}) => {
 };
 
 export default MQuoteItem;
-{/* <div>
-      <button value="addToLibrary" disabled={isLoading}>
-        add to My Quotes
-      </button>
-      <div></div>
-      <h5></h5>
-       <button value="findSong" onClick={()=>getSongs(`${category}`)} disabled={isLoading}>
-        Find Song
-      </button> 
-      
-    </div> */}
+
 
